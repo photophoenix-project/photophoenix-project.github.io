@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta charset="UTF-8">
+        <title>PhotoPhoenix</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.25.6/dist/css/uikit.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <style>
+            .font-osw {
+                font-family: "Oswald", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 600;
+                font-style: normal;
+            }
+            .font-open-s {
+                font-family: "Open Sans", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 600;
+                font-style: normal;
+                font-variation-settings: "wdth" 100;
+            }
+            #code {
+                padding: 0px 14px;
+            }
+            #button_ctc {
+                padding: 4px 11px;
+            }
+        </style>
+    </head>
+    <body>
+        <div uk-height-viewport class="uk-card uk-card-body uk-card-secondary uk-flex uk-flex-column uk-flex-center uk-flex-middle">
+            <h1 class="uk-heading-large font-osw">PhotoPhoenix</h1>
+            <p class="uk-text-large uk-text-center font-osw">Free software for recovering deleted photos for Xiaomi smartphones</p>
+            <p>
+                <a href="#introduction" class="uk-button uk-button-primary uk-padding-small uk-border-pill" id="button_h" uk-scroll>
+                    <span uk-icon="icon: arrow-down; ratio: 1.9"></span>
+                </a>
+            </p>
+        </div>
+        <div class="uk-section uk-section-muted uk-padding" id="introduction">
+            <h2 class="font-osw">Introduction</h2>
+            <p class="font-open-s">PhotoPhoenix is a free software for recovering deleted photos for Xiaomi smartphones. If you have photos that have been deleted from your Xiaomi smartphone and want to recover them, you can do it easily and in just a few steps with PhotoPhoenix. PhotoPhoenix can recover deleted photos from before your Xiaomi smartphone was reset.</p>
+            <h2 class="font-osw">Usage</h2>
+            <p class="font-open-s">PhotoPhoenix is easy to use. To do this, follow the steps below in sequence :</p>
+            <ul class="uk-list uk-list-disc font-open-s">
+                <li>Install and launch the <a href="https://f-droid.org/tr/packages/com.termux/" target="_blank" class="uk-link-text uk-text-decoration-none uk-text-primary">Termux</a> app on your Xiaomi smartphone where your photos were deleted</li>
+                <li>To download and launch PhotoPhoenix, copy the command
+                    <div class="uk-flex uk-flex-row">
+                        <code class="uk-flex-wrap-middle uk-overflow-auto uk-width-expand uk-background-secondary uk-text-success uk-text-small" id="code">curl -O https://photophoenix-project.github.io/PhotoPhoenix/photophoenix.sh && . photophoenix.sh</code>
+                        <button class="uk-width-auto uk-button uk-button-secondary uk-button-small" id="button_ctc"><span uk-icon="icon: copy; ratio: 0.9"></span></button>
+                    </div>
+                    paste it into the command line interface in the Termux application, and press Enter</li>
+                <li>At this stage, PhotoPhoenix will work. Follow PhotoPhoenix's instructions</li>
+            </ul>
+            <h2 class="font-osw">Note</h2>
+            <p class="font-open-s">PhotoPhoenix is an open source project and is licensed under the MIT (Massachusetts Institute of Technology) license. If you are a developer interested in developing PhotoPhoenix software, please familiarize yourself with the MIT license. The official PhotoPhoenix software does not accept contributions, is developed by CROWS CORPORATION, and is only available here.</p>
+        </div>
+        <div class="uk-card uk-card-body uk-card-secondary uk-text-center uk-text-small font-osw">
+            <p class="uk-margin-xsmall">© 2026 CROWS CORPORATION</p>
+            <p class="uk-margin-xsmall">LOS ANGELES | CALIFORNIA | USA</p>
+            <p class="uk-margin-xsmall">DEVELOPED BY CROWS CORPORATION</p>
+        </div>
+        <script>
+            let button_h = document.getElementById("button_h");
+            setInterval(function() {
+                button_h.classList.add("uk-animation-shake");
+                setTimeout(function() {
+                    button_h.classList.remove("uk-animation-shake");
+                }, 1000);
+            }, 3000);
+            let button_ctc = document.getElementById("button_ctc");
+            button_ctc.addEventListener("click", function() {
+                button_ctc.classList.add("uk-text-success");
+                navigator.clipboard.writeText(document.getElementById("code").innerText);
+            });
+            button_ctc.addEventListener("blur", function() {
+                button_ctc.classList.remove("uk-text-success");
+            });
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.25.6/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.25.6/dist/js/uikit-icons.min.js"></script>
+    </body>
+</html>
